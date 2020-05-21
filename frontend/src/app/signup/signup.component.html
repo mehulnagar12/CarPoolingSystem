@@ -1,0 +1,127 @@
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!Doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>SignUp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div style="text-align: center" style="color: aliceblue;">
+    <h1>{{message}}</h1>
+  </div>
+  <div class="container">
+
+    <header class="heading"> SignUp </header>
+
+    <div class="row ">
+
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-xs-4">
+            <label class="firstname">Username :</label> </div>
+          <div class="col-xs-8">
+            <input type="text" [(ngModel)]="user.username" name="fname" id="fname" placeholder="Enter your Username"
+              class="form-control ">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-xs-4">
+            <label class="pass">Password :</label></div>
+          <div class="col-xs-8">
+            <input type="password" [(ngModel)]="user.password" name="password" id="password"
+              placeholder="Enter your Password" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-xs-4">
+            <label class="mail">Email :</label></div>
+          <div class="col-xs-8">
+            <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="Enter your email"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input class="btn btn-success" type="submit" name="submit_reg" value="Signup" 
+      style="margin-top: 30px;" (click)="signUp()">
+      
+      <input class="btn btn-success" type="submit" name="submit_reg" routerLink="/userLogin" value="Login" 
+      style="margin-top: 30px;" (click)=navigateToLogin()>
+
+      <input type="button" class="btn btn-success" (click)=navigateToHome() value="Home"
+        style="margin-top: 30px;" routerLink="/home">
+    </div>
+  </div>
+
+</body>
+
+</html> --->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Clinton Nkwocha">
+    <meta name="description" content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+    <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="viewport" content="width=device-width">
+    <title>Sign Up - Rider</title>
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <input type="checkbox" id="burger-toggle">
+        <label id="burger" for="burger-toggle">
+          <div></div>
+        </label>
+        <ul>
+          <li>
+            <a routerLink="/home" class="shortcut">Home</a>
+          </li>
+          <li>
+            <a routerLink="/riderLogin" class="shortcut">Offer Ride</a>
+          </li>
+          <li>
+            <a routerLink="/signupRider" class="shortcut">Signup as Rider</a>
+          </li>
+          <li>
+            <a routerLink="/userLogin" class="shortcut">Log In</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="spread">
+        <h2>Sign Up - User</h2>
+        <div style="text-align: center" style="color: red;">
+          <h1>{{message}}</h1>
+        </div>
+        <form action="#" method="POST">
+          <input type="text" name="name" id="name" [(ngModel)]="user.name" placeholder="Fullname" required>
+          <input type="text" [(ngModel)]="user.username" name="username" id="username" placeholder="Username">
+          <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="Email address" required>
+          <input type="text" name="mobile" id="mobile" [(ngModel)]="user.mobile" placeholder="Mobile Number" required>
+          <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="Password" minlength="8" required>
+          <input type="password" name="pin2" placeholder="Confirm password" minlength="8" required>
+          <input type="submit" value="Sign up" class="pill" (click)="signUp()">
+        </form>
+        <p>Already registered, log in <a routerLink="/userLogin" class="shortcut">here</a>!</p>
+      </section>
+    </div>
+  </body>
+</html>
+<router-outlet></router-outlet>

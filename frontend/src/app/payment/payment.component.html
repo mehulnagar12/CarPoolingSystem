@@ -1,0 +1,32 @@
+<div ngx-auto-scroll>
+  <app-user (myOutput)="GetChildData($event)" (myOutputConfirm)="GetConfirmation($event)"></app-user>
+</div>
+
+
+<div ngx-auto-scroll>
+  <div *ngIf="checkVariable" ngx-auto-scroll lock-y-offset="10" observe-attributes>
+
+    <div style="text-align: center" style="color:red;">
+      <h1>{{message}}</h1>
+    </div>
+
+    <form action="#" method="POST">
+      <div id="number2">
+        <a>Price Payable: {{price}}</a><br>
+        <a> Enter your Email address and press confirm to get Rider Details </a><br>
+
+        <input type="email" [(ngModel)]="emails.emailId" name="email" id="email" placeholder="Email address" required>
+        <input type="submit" value="Confirm" class="btn success" (click)="sendEmail()">
+      </div>
+    </form>
+
+    <form action="#" method="POST">
+      <div id="number2">
+        <a>Click for card payment</a>
+        <input type="submit" value="Card" class="pill" (click)="payOnline()">
+          
+      </div>
+    </form>
+
+  </div>
+</div>

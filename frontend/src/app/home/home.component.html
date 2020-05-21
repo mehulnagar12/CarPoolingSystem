@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <input type="checkbox" id="burger-toggle">
+        <label id="burger" for="burger-toggle">
+          <div></div>
+        </label>
+        <ul>
+          <li>
+            <a routerLink="/home" class="shortcut">Home</a>
+          </li>
+          <li>
+            <a routerLink="/riderLogin" class="shortcut">Offer Ride</a>
+          </li>
+          <li>
+            <a routerLink="/adminLogin" class="shortcut">Admin</a>
+          </li>
+          <li>
+            <a routerLink="/userLogin" class="shortcut">User</a>
+          </li>
+          <li>
+            <a routerLink="/signup" class="shortcut">Sign Up</a>
+          </li>
+          
+        </ul>
+      </nav>
+      <section id="wrap">
+        <main>
+          <h1>RIDER</h1>
+          <p>Carpooling shouldn't be that hard, right?</p>
+          <form action="#" method="GET">
+            <!--<input type="text" name="departure" placeholder="Departure" title="Tip: Use the nearest bus stop to you for optimal results." [(ngModel)]="dest" required>
+            <input type="text" name="destination" placeholder="Destination" title="Tip: Use the nearest bus stop to your destination for optimal results." [(ngModel)]="ori" required>
+            <input type="date" name="date" value="2018-07-03" required> -->
+            <input type="submit" value="Available Rides" class="checkRides" (click)=navigateToAvlRides()>
+          </form>
+        </main>
+      </section>
+      <section class="more">
+        <h2>Why Rider?</h2>
+        <div class="description" id="description-one">
+          <div class="image-box"></div>
+          <div class="word-box">
+            <p>Rider is a carpooling application that provides drivers with the ability to <a routerLink="/riderLogin" class="shortcut">create ride offers</a> and passengers to join available ride offers.</p>
+            <p>With Rider, you get to optimize the use of your ride, save fuel, money, time and most of all: you get to share! <a routerLink="/signup" class="shortcut">Sign up</a> now to see how easy carpooling can be. Seriously <a routerLink="/signup" class="shortcut">sign up</a> now.</p>
+          </div>
+        </div>
+      </section>
+      <section class="more">
+        <h2>Grab The Wheel!</h2>
+        <div class="description" id="description-two">
+          <div class="image-box"></div>
+          <div class="word-box">
+            <p>Getting started with Rider is as easy as just one click. All you have to do is <a routerLink="/signup" class="shortcut">sign up</a>, <a routerLink="/riderLogin" class="shortcut">create a ride offer</a> (if you want to offer a ride) and wait for requests.</p>
+            <p>After creating a ride offer, you recieve requests from people who would like to ride with you, you can either accept or reject them and you're done.</p>
+            <p>See, it's that easy. <a routerLink="/signup" class="shortcut">Sign up</a> now to ride your way!</p>
+          </div>
+        </div>
+        <div id="btn-wrap">
+          <a routerLink="/signup" class="pill">Sign up</a>
+          <a routerLink="/userLogin" class="pill">Log in</a>      
+        </div>
+      </section>
+      <footer>
+          <span>&copy; 2020 Rider</span>
+          <span>  <a href="https://clintonpi.github.io" target="_blank" rel="noopener"> </a></span>
+      </footer>
+    </div>
+  </body>
+</html>
+

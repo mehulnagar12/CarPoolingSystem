@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Clinton Nkwocha">
+    <meta name="description" content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+    <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="viewport" content="width=device-width">
+    <title>Log In - Rider</title>
+    <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <a>Welcome</a>
+        <input type="checkbox" id="burger-toggle">
+        <label id="burger" for="burger-toggle">
+          <div></div>
+        </label>
+        <ul>
+          <li>
+            <a routerLink="/home" class="shortcut">Home</a>
+          </li>
+          <li>
+            <a routerLink="/userLogin" class="shortcut">User Log In</a>
+          </li>
+          <li>
+            <a routerLink="/signup" class="shortcut">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="spread">
+        <h2>Rider Log In</h2>
+        <form action="#" method="POST">
+          <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+          <input type="text" name="username" placeholder="Username" required [(ngModel)]="username">
+          <input type="password" name="pin" placeholder="Password"  required [(ngModel)]="password">
+          <input type="submit" value="Log in" class="pill" (click)="handleRiderLogin()">
+          <input type="submit" value="Reset Password" class="pill">
+        </form>
+        <p>Not yet registered, sign up <a routerLink="/signupRider" class="shortcut">here</a>!</p>
+      </section>
+    </div>
+  </body>
+</html>
+<router-outlet></router-outlet>

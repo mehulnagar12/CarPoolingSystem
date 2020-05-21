@@ -1,0 +1,136 @@
+<!---
+
+<html>
+
+<body>
+  <div class="container col-lg-6">
+    <h1 class="text-center">Login</h1>
+    <div class="card">
+      <div class="card-body">
+        <form class="form-group">
+          <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+          <div class="form-group">
+            <label for="email">User Name :</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Enter User Name"
+              name="username">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" [(ngModel)]="password" id="password"
+              placeholder="Enter password" name="password">
+          </div>
+          <button (click)=handleLogin() class="btn btn-success">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html> -->
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<html>
+
+<body>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <div style="text-align: center;">
+    <h1 style="color: black; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">User
+      PORTAL</h1>
+  </div>
+  <div class="login-wrap" style="background-size: 100%;">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input type="text" id="user" type="text" class="input" [(ngModel)]="username">
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input id="pass" type="password" class="input" data-type="password" [(ngModel)]="password">
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign In" (click)=handleUserLogin()>
+            <input type="submit" style="margin-top: 20px;" class="button" value="SignUp" (click)=navigateToSignUp()>
+            <input type="submit" class="button" value="Home" style="margin-top: 20px;" (click)=navigateToHome()>
+
+          </div>
+          <div class="hr"></div>
+        </div>
+        <div class="for-pwd-htm">
+          <div class="group">
+            <label for="user" class="label">Username or Email</label>
+            <input id="user" type="text" class="input" [(ngModel)]="username">
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Reset Password">
+          </div>
+          <div class="hr"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>Contact Us: 123456789</h2>
+    <h2>Write Us: abcdef@gmail.com</h2>
+  </div>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Clinton Nkwocha">
+    <meta name="description" content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+    <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="viewport" content="width=device-width">
+    <title>Log In - Rider</title>
+    <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <input type="checkbox" id="burger-toggle">
+        <label id="burger" for="burger-toggle">
+          <div></div>
+        </label>
+        <ul>
+          <li>
+            <a routerLink="/home" class="shortcut">Home</a>
+          </li>
+          <li>
+            <a routerLink="/riderLogin" class="shortcut">Offer Ride</a>
+          </li>
+          <li>
+            <a routerLink="/signup" class="shortcut">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="spread">
+        <h2>User Log In</h2>
+        <form action="#" method="POST">
+          <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+          <input type="text" name="username" placeholder="Username" required [(ngModel)]="username">
+          <input type="password" name="pin" placeholder="Password"  required [(ngModel)]="password">
+          <input type="submit" value="Log in" class="pill" (click)=handleUserLogin()>
+          <input type="submit" value="Reset Password" class="pill">
+        </form>
+        <p>Not yet registered, sign up <a routerLink="/signup" class="shortcut">here</a>!</p>
+      </section>
+    </div>
+  </body>
+</html>
+<router-outlet></router-outlet>

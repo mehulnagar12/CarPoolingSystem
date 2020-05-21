@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Clinton Nkwocha">
+  <meta name="description"
+    content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+  <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+  <meta name="language" content="English">
+  <meta name="theme-color" content="#2c3e50">
+  <meta name="viewport" content="width=device-width">
+  <title>Sign Up - Rider</title>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="navbar">
+      <input type="checkbox" id="burger-toggle">
+      <label id="burger" for="burger-toggle">
+        <div></div>
+      </label>
+      <ul>
+        <li>
+          <a routerLink="/home" class="shortcut">Home</a>
+        </li>
+        <li>
+          <a routerLink="/offerRide" class="shortcut">Offer Ride</a>
+        </li>
+        <li>
+          <a routerLink="/signup" class="shortcut">Sign Up</a>
+        </li>
+        <li>
+          <a routerLink="/userLogin" class="shortcut">Log In</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="spread">
+      <div style="text-align: center" style="color:red;">
+        <h1>{{message}}</h1>
+      </div>
+      <h2>Sign Up- Rider</h2>
+      <form action="#" method="POST">
+        <input type="text" name="name" id="name" placeholder="Fullname" [(ngModel)]="rider.name" required>
+        <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="rider.username">
+        <input type="email" name="email" id="email" placeholder="Email address" required [(ngModel)]="rider.email">
+        <input type="text" name="mobile" id="mobile" placeholder="Mobile Number" required [(ngModel)]="rider.rider_mobile">
+        <input type="text" name="city" id="city" placeholder="City" required [(ngModel)]="rider.city">
+        <input type="text" name="carmodel" id="carmodel" placeholder="Car Model" required [(ngModel)]="rider.carmodel">
+        <input type="text" name="carnumber" id="carnumber" placeholder="Car Number" required [(ngModel)]="rider.carnumber">
+        <input type="text" name="carcolor" id="carcolor" placeholder="Car Color" required [(ngModel)]="rider.carcolor">
+        <input type="password" name="password" id="password" placeholder="Password" required [(ngModel)]="rider.rider_password"> 
+        <input type="password" name="pin2" placeholder="Confirm password" required [(ngModel)]="rider.rider_password"> 
+        <input type="submit" value="Sign up" class="pill" (click)=RidersignUp()>
+      </form>
+      <p>Already registered, log in <a routerLink="/riderLogin" class="shortcut">here</a>!</p>
+    </section>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Clinton Nkwocha">
+  <meta name="description"
+    content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+  <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+  <meta name="language" content="English">
+  <meta name="theme-color" content="#2c3e50">
+  <meta name="viewport" content="width=device-width">
+  <title>Available Ride(s) - Rider</title>
+  <link href="https://fonts.googleapis.com/css?family=Capriola" rel="stylesheet">
+  <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="navbar">
+      <h2>Welcome!</h2>
+      <input type="checkbox" id="burger-toggle">
+      <label id="burger" for="burger-toggle">
+        <div></div>
+      </label>
+      <ul>
+        <li>
+          <a routerLink="/home" class="shortcut">Home</a>
+        </li>
+        <li>
+          <a routerLink="/riderLogin" class="shortcut">Offer Ride</a>
+        </li>
+        <li>
+          <a routerLink="/userLogin" class="shortcut">Login</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="spread">
+      <h2>Available Ride(s)</h2>
+      <h4>**Click Ride detail scroll to bottom of the page to check Rider details</h4>
+      <div>
+        <i class="material-icons">&#xE8B6;</i>
+        <input type="text" placeholder="Search for nearest bus-stop from origin" [(ngModel)]="origin">
+      </div>
+      <div>
+        <i class="material-icons">&#xE8B6;</i>
+        <input type="text" placeholder="Search for nearest bus-stop from destination" [(ngModel)]="destination">
+      </div>
+      <div>
+        <i class="material-icons">&#xE8B6;</i>
+        <input type="date" placeholder="Date of Travel" [(ngModel)]="date">
+      </div>
+      <ul id="rides">
+        <li class="ride" *ngFor="let rideDetail of rideDetails | searchFilter: origin :destination :date"
+          [class.selected]="rideDetail === selectedRideDetail" (click)="onSelect(rideDetail)">
+          <div>
+            <ul>
+              <li><strong>Departure: </strong>{{rideDetail.origin}}</li>
+              <li><strong>Destination: </strong>{{rideDetail.destination}}</li>
+              <li><strong>Date: </strong>{{rideDetail.date}}</li>
+              <li><strong>Time: </strong>{{rideDetail.time}}</li>
+              <li><strong>Seats: </strong>{{rideDetail.seats}}</li>
+              <li class="pill">Ride Details</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+
+</html>

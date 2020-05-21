@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Clinton Nkwocha">
+    <meta name="description" content="Rider is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.">
+    <meta name="keywords" content="rider, carpool, carpooling, car, pool, offer ride">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div id="container">
+      <nav id="navbar">
+        <a>Welcome {{dispName}}!</a>
+        <input type="checkbox" id="burger-toggle">
+        <label id="burger" for="burger-toggle">
+          <div></div>
+        </label>
+        <ul>
+          <li>
+            <a routerLink="/home" class="shortcut">Home</a>
+          </li>
+          <li>
+            <a routerLink="/userLogin" class="shortcut">User Log In</a>
+          </li>
+          <li>
+            <a routerLink="/riderLogin" class="shortcut">Logout</a>
+          </li>
+          <li>
+            <a routerLink="/riderProfile" class="shortcut">My Profile</a>
+          </li>
+        </ul>
+      </nav>
+
+      
+      
+      <section class="spread">
+        <div style="text-align: center" style="color:red;">
+          <h1>{{message}}</h1>
+        </div>
+        <h2>Create Ride Offer</h2>
+        <form>
+          <input type="text" [(ngModel)]="rideDetail.origin" name="departure" id="departure" placeholder="Departure" title="Tip: Use the nearest bus stop to you for optimal results." required>
+          <input type="text" [(ngModel)]="rideDetail.destination" name="destination" id="destination" placeholder="Destination" title="Tip: Use the nearest bus stop to your destination for optimal results." required>
+          <input type="date" [(ngModel)]="rideDetail.date" name="date" id="date" value="2018-07-03" title="Input date of departure." required>
+          <input type="time" [(ngModel)]="rideDetail.time" name="time" id="time" value="18:00" title="Input time of departure. e.g 06:00 PM" required>
+          <input type="number" [(ngModel)]="rideDetail.seats" min="1" name="available-seats" id="available-seats" placeholder="Available Seats for others" required>
+          <input type="text" [(ngModel)]="rideDetail.riderName" name="Rider-Name" placeholder=" User Name" required>
+          <input type="submit" class="pill" value="Offer Ride" (click)="addNow()">
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
