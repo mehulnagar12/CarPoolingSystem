@@ -1,6 +1,7 @@
 # CarPoolingSystem
 RIDE  | SHARE | EARN
-Install Node Modules in the frontend folder -- "npm init".
+
+1. Install Node Modules in the frontend folder -- "npm init".
 
 # Frontend- Angular CLI 9
 
