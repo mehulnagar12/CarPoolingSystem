@@ -3,6 +3,8 @@ package com.example.backend.Controllers;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.example.backend.Model.Email;
 import com.example.backend.Model.HistoryRider;
 import com.example.backend.Model.HistoryUser;
@@ -19,11 +21,13 @@ import com.example.backend.Services.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -43,6 +47,9 @@ public class UserController {
 
     @Autowired
     Mail mail;
+
+    @Autowired
+    Optional<RideDetails> rd;
 
     @Autowired
     private HistoryUserRepo historyUserRepo;
@@ -87,7 +94,7 @@ public class UserController {
     @CrossOrigin("http://localhost:4200/")
     @GetMapping("/users/getRideDetails")
     public List<RideDetails> getRideDetails() {
-        return rideDetailRepo.findAll();
+        return rideDetailRepo.findAllDesc();
     }
 
     @CrossOrigin("http://localhost:4200/")
@@ -111,7 +118,7 @@ public class UserController {
     @CrossOrigin("http://localhost:4200/")
     @GetMapping("/getRideDetails")
     public List<RideDetails> getRiderDetailsNoAuth() {
-        return rideDetailRepo.findAll();
+        return rideDetailRepo.findAllDesc();
     }
 
     @CrossOrigin("http://localhost:4200/")
@@ -174,6 +181,26 @@ public class UserController {
     @CrossOrigin("http://localhost:4200/")
     @GetMapping("/users/getHistory")
     public List<HistoryUser> getHistory(){
-        return historyUserRepo.findAll();
+        return historyUserRepo.findAllDesc();
+    }
+
+    @CrossOrigin("http://localhost:4200/")
+    @DeleteMapping("/users/deleteHistoryUser/{id}")
+    public String deleteHistoryUser(@PathVariable int id){
+        historyUserRepo.deleteById(id);
+        return "Deleted";
+    }
+
+    @CrossOrigin("http://localhost:4200/")
+    @PutMapping("/users/decrementSseat/{id}")
+    public String decrementSeat(@PathVariable int id){
+        rd = rideDetailRepo.findById(id);
+        RideDetails details = rd.get();
+        System.out.println(details);
+        System.out.println("Seats: "+details.getSeats());
+        details.setSeats(details.getSeats()-1);
+        System.out.println("Updated: "+details.getSeats());
+        rideDetailRepo.save(details);
+        return "Value Updated";
     }
 }

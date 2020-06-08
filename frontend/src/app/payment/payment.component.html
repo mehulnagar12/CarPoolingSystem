@@ -7,26 +7,30 @@
   <div *ngIf="checkVariable" ngx-auto-scroll lock-y-offset="10" observe-attributes>
 
     <div style="text-align: center" style="color:red;">
-      <h1>{{message}}</h1>
+      <h2>{{message}}</h2>
     </div>
 
     <form action="#" method="POST">
       <div id="number2">
-        <a>Price Payable: {{price}}</a><br>
+        <a>Price Payable: $50</a><br><br>
         <a> Enter your Email address and press confirm to get Rider Details </a><br>
-
         <input type="email" [(ngModel)]="emails.emailId" name="email" id="email" placeholder="Email address" required>
-        <input type="submit" value="Confirm" class="btn success" (click)="sendEmail()">
+        <input type="submit" value="Confirm" class="btn success" (click)="sendEmail()">  
+        <div style="text-align: center" style="color:red;">
+          <h2>{{message}}</h2>
+        </div>
       </div>
     </form>
 
     <form action="#" method="POST">
-      <div id="number2">
-        <a>Click for card payment</a>
-        <input type="submit" value="Card" class="pill" (click)="payOnline()">
-          
+      <div id="number2" *ngIf="checkPaymentVariable">
+        <a>Payment Options</a><br>
+        <input type="submit" value="Card Payment" class="pill" (click)="payOnline()">
+        <input type="submit" value="Pay to Driver" class="pill" (click)="payCod()">
+        <p>{{payMessage}}</p>
+        <br>
+        <br>
       </div>
     </form>
-
   </div>
 </div>

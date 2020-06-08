@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class HistoryService {
 
   constructor(private http: HttpClient) { }
-  
+
+  id:number;
+  rider_id:number;
+
   public sendHistory(history){
     return this.http.post("http://localhost:8080/users/history",history,{responseType:'text' as 'json'});
   }
@@ -39,4 +42,16 @@ export class HistoryService {
   public cancelRiderEmail(cancelMail){
     return this.http.post("http://localhost:8080/riders/sendCancelEmail",cancelMail,{responseType:'text' as 'json'})
   }
+
+  public deleteHistoryUser(id){
+    return this.http.delete("http://localhost:8080/users/deleteHistoryUser/"+id);
+  }
+
+  public deleteHistoryRider(rider_id){
+    return this.http.delete("http://localhost:8080/riders/deleteHistoryRider/"+rider_id)
+  }
+  public seatDecrement(no:number,rideDetails){
+    return this.http.put("http://localhost:8080/users/decrementSseat/"+no,rideDetails,{responseType:'text' as 'json'});
+  }
+
 }

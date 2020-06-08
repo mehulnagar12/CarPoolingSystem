@@ -1,5 +1,6 @@
 package com.example.backend.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,10 +23,12 @@ public class Rider {
     private int rider_id;
     private String name;
     private String username;
+    @Column(unique = true)
     private String email;
     private String rider_mobile;
     private String city;
     private String carmodel;
+    @Column(unique = true)
     private String carnumber;
     private String carcolor;
     private String rider_password;

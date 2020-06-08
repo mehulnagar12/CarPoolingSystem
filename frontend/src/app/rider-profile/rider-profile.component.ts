@@ -10,13 +10,13 @@ import { Email } from '../email';
 })
 export class RiderProfileComponent implements OnInit {
 
-  dispName:any;
-  historyRiders:any;
-  len:any
+  dispName: any;
+  historyRiders: any;
+  len: any
   emails: Email = new Email("", "")
-  cancelMessage:any
+  cancelMessage: any
   constructor(private recieve: HistoryService,
-              private service: AuthRiderService) { }
+    private service: AuthRiderService) { }
 
   ngOnInit(): void {
     this.dispName = this.service.getLoggedInUserName()
@@ -24,17 +24,24 @@ export class RiderProfileComponent implements OnInit {
     resp.subscribe((data) => {
       this.historyRiders = data
       this.len = this.historyRiders.length - 1
-      this.emails.emailId = this.historyRiders[this.historyRiders.length - 1].userEmail;
-      this.emails.info = this.historyRiders[this.historyRiders.length - 1].riderName + " has cancelled ride";
+      this.emails.emailId = this.historyRiders[0].userEmail;
+      this.emails.info = this.historyRiders[0].riderName + " has cancelled ride";
     })
   }
 
-  sendCancellationMail(hist) {
+  sendCancellationMail(hist,id:number) {
     let resp = this.recieve.cancelRiderEmail(this.emails);
     console.log(this.emails)
     this.cancelMessage = "Ride has been cancelled..!!"
     resp.subscribe((data) => console.log(data))
     const index = this.historyRiders.indexOf(hist);
     this.historyRiders.splice(index, 1);
-}
+
+    this.deleteRide(id);
+  }
+
+  deleteRide(id: number) {
+    let resp = this.recieve.deleteHistoryRider(id);
+    resp.subscribe((data) => this.historyRiders = data);
+  }
 }

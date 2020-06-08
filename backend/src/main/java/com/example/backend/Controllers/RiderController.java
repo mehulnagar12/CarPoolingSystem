@@ -13,7 +13,9 @@ import com.example.backend.Services.Mail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +51,7 @@ public class RiderController {
     @CrossOrigin("http://localhost:4200/")
     @GetMapping("/riders/getRiderHistory")
     public List<HistoryRider> getRiderHistory(){
-        return historyRiderRepo.findAll();
+        return historyRiderRepo.findAllDesc();
     }
 
     @CrossOrigin("http://localhost:4200/")
@@ -57,5 +59,12 @@ public class RiderController {
     public String cancelEmail(@RequestBody Email email) throws Exception {
         mail.sendCancelEmail(email);
         return "Ride Successfully Cancelled..!!";
+    }
+
+    @CrossOrigin("http://localhost:4200/")
+    @DeleteMapping("/riders/deleteHistoryRider/{rider_id}")
+    public String deleteHistoryUser(@PathVariable int rider_id){
+        historyRiderRepo.deleteById(rider_id);
+        return "Deleted";
     }
 }

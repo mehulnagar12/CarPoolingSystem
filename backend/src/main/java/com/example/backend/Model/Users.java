@@ -1,5 +1,7 @@
 package com.example.backend.Model;
 
+import javax.persistence.Column;
+
 //import java.util.Set;
 
 //import javax.persistence.CascadeType;
@@ -24,6 +26,7 @@ public class Users {
     private int user_id;
     private String name;
     private String username;
+    @Column(unique = true)
     private String email;
     private String mobile;
     private String password;

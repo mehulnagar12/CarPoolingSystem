@@ -56,7 +56,7 @@ public class Mail {
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(email.getInfo());
+        
 
         msg.setText("Booking Has Been made on " + formattedDate + "\n" + "By: " + email.getInfoRider()
                     + " Contact the user to cancel ride...!!");

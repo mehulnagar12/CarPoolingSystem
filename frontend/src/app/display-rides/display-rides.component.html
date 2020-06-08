@@ -54,7 +54,7 @@
         <li class="ride" *ngFor="let rideDetail of rideDetails | searchFilter: origin :destination :date"
           [class.selected]="rideDetail === selectedRideDetail" (click)="onSelect(rideDetail)">
           <div>
-            <ul>
+            <ul *ngIf= "rideDetail.seats>0">
               <li><strong>Departure: </strong>{{rideDetail.origin}}</li>
               <li><strong>Destination: </strong>{{rideDetail.destination}}</li>
               <li><strong>Date: </strong>{{rideDetail.date}}</li>

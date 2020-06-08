@@ -19,9 +19,11 @@ export class PaymentComponent implements OnInit {
 
   emails: Email = new Email("","","");
   message:any;
+  payMessage:any;
   isLoggedIn = false;
   price: "50";
   checkVariable: boolean=false;
+  checkPaymentVariable: boolean=false;
   @Input() ValueFromComponent1:string;
   @ViewChild(NgxAutoScroll) ngxAutoScroll: NgxAutoScroll;
   subscription: Subscription;
@@ -45,33 +47,38 @@ export class PaymentComponent implements OnInit {
       this.riderEmail = data.Email
       this.emails.riderId = this.riderEmail
       console.log(this.riderEmail)
-    });
-    
-
+    });    
   }
 
   public sendEmail(){
     let resp = this.service.sendMail(this.emails);
     this.emails.infoRider = this.authenticationUserService.isUserLoggedIn() + " " +  this.emails.emailId
     console.log(this.emails)
-    resp.subscribe((data)=>console.log(data));
-    this.message = "Email Sent..!"
+    resp.subscribe((data)=>{
+      if(data!=null){
+        this.message = "Email Sent!!"
+      }
+      console.log(data)});
+    this.emails.info = this.emails.info + " Price to be paid: " + this.price + "\n";
+    console.log(this.emails)
+    this.checkPaymentVariable=true;
     console.log(resp);
     
   }
-
+/*
   public getEstimate(){
     this.emails.info = this.emails.info + " Price to be paid: " + this.price + "\n";
     console.log(this.emails)
-  }
+  }*/
 
   public payCod(){
+    this.payMessage = "COD selected";
     this.emails.info = this.emails.info + " Price to be paid: " + this.price + "\n";
     console.log(this.emails)
   }
 
   public payOnline(){
-    this.emails.info = this.emails.info + " Price to be paid: " + this.price + "\n";
+    this.emails.info = this.emails.info + " Price paid: " + this.price + "\n";
     console.log(this.emails)
     this.router.navigate(['/onlinePayment'])
   }

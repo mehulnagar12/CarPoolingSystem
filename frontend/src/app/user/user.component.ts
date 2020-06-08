@@ -64,6 +64,10 @@ export class UserComponent implements OnInit {
 
   }
 
+  scroll(el: HTMLElement){
+    el.scrollIntoView();
+  }
+
   public findRideByOrigin(origin){
     let resp = this.service.getByOrigin(origin);
     resp.subscribe((data)=>this.rideDetails=data);
@@ -79,11 +83,14 @@ export class UserComponent implements OnInit {
     this.show_req_join = !this.show_req_join;
   }
 
-  public reqToJoin(data1:string,data2:string,data3:string,data4:string){
+  public reqToJoin(data1:string,data2:string,data3:string,data4:string,data5:any,data6:number){
     this.outputMessage = {
         Name:data1,
         Mobile:data2,
-        Email:data3
+        Email:data3,
+        Username:data4,
+        ID:data5,
+        seatCount:data6-1
     };
     this.outputMessage = (JSON.stringify(this.outputMessage))
     this.show_confirmation = !this.show_confirmation;
@@ -109,6 +116,12 @@ export class UserComponent implements OnInit {
     let respo = this.history.sendRiderHistory(this.histRider);
     respo.subscribe((data)=>console.log(data))
 
+    this.seatDecrement(data5);
+  }
+
+  seatDecrement(no:number){
+    let resp = this.history.seatDecrement(no,this.rideDetails);
+    resp.subscribe((data)=>console.log(data))
   }
 
   handleLogout(){

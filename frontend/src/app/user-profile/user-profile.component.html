@@ -166,7 +166,7 @@
       </label>
       <ul>
         <li>
-          <a routerLink="/home" class="pill">Home</a>
+          <a routerLink="/payment" class="pill">Home</a>
         </li>
         <li>
           <a routerLink="/riderLogin" class="pill">Offer Ride</a>
@@ -205,8 +205,8 @@
             <td>{{hist.riderMobile}}</td>
             <td>{{hist.riderEmail}}</td>
             <td>{{hist.dateTime}}</td>
-            <td *ngIf="i == len">
-              <a class="btn btn-danger"  (click)=sendCancellationMail(hist)>Cancel Ride</a>
+            <td *ngIf="i == 0">
+              <a class="btn btn-danger"  (click)=sendCancellationMail(hist,hist.id)>Cancel Ride</a>
             </td>
           </tr>
       </tbody>

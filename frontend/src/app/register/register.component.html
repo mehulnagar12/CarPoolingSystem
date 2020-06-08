@@ -36,10 +36,6 @@
         </ul>
       </nav>
       
-      <div style="text-align: center" style="color:red;">
-        <h1>{{message}}</h1>
-      </div>
-      
       <section class="spread">
         <h2>Admin Registration</h2>
         <form action="#" method="POST">
@@ -50,6 +46,9 @@
           <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="Password" minlength="8" required>
           <input type="password" name="pin2" placeholder="Confirm password" minlength="8" required>
           <input type="submit" value="Register" class="pill" (click)="registerNow()">
+          <div style="text-align: center" style="color:red;">
+            <h2>{{message}}</h2>
+          </div>
           <input type="submit" value="Search" class="pill" (click)="navigateToSearch()">
           <input type="submit" value=" For Rider Registration" class="pill" (click)="navigateToRiderReg()">
           <input type="submit" value="Logout" class="pill" (click)="handleLogout()">

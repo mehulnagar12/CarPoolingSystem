@@ -12,7 +12,7 @@ import { RideRegistrationService } from './ride-registration.service';
 export class RegisterRideDetailComponent implements OnInit {
 
   isLoggedIn = false;
-  rideDetail: RideDetails = new RideDetails("","","","",1,"");
+  rideDetail: RideDetails = new RideDetails(0,"","","","",1,"");
   message: any;
   rideDetails: any;
   dispName:string;

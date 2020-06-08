@@ -22,4 +22,6 @@ export class TransferService {
   sendData(): Observable<any>{
     return this.subject.asObservable();
   }
+
+  
 }

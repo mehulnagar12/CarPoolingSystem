@@ -57,37 +57,42 @@
         <li class="ride" *ngFor="let rideDetail of rideDetails | searchFilter: origin :destination :date"
           [class.selected]="rideDetail === selectedRideDetail" (click)="onSelect(rideDetail)">
           <div id="section1">
-            <ul>
+            <ul (click)="scroll(target)">
               <li><strong>Departure: </strong>{{rideDetail.origin}}</li>
               <li><strong>Destination: </strong>{{rideDetail.destination}}</li>
               <li><strong>Date: </strong>{{rideDetail.date}}</li>
               <li><strong>Time: </strong>{{rideDetail.time}}</li>
               <li><strong>Seats: </strong>{{rideDetail.seats}}</li>
-              <li class="pill">Ride Details</li>
+              <button id="rideDetail" class="pill" (click)="scroll(target)">Ride Details</button>
             </ul>
           </div>
         </li>
       </ul>
-      <div *ngIf="show_req_join" style="background-color: lightblue;">
-        <ul id="rides">
-          <li class="ride">
-            <div *ngFor="let riderDetail of riderDetails">
-              <div *ngIf="selectedRideDetail.riderName == riderDetail.username" id="section2">
-                <ul>
-                  <li><strong>ID: </strong>{{riderDetail.rider_id}}</li>
-                  <li><strong>Name: </strong> {{riderDetail.name}}</li>
-                  <li><strong>Car Model: </strong> {{riderDetail.carmodel}}</li>
-                  <li><strong>Car Number: </strong> {{riderDetail.carnumber}}</li>
-                  <li><strong>Car Color: </strong> {{riderDetail.carcolor}}</li>
-                  <li><button id="cancel" class="pill" routerLink="/payment"
-                      (click)=reqToJoin(riderDetail.name,riderDetail.rider_mobile,riderDetail.email,riderDetail.username)>Request to join</button></li>
-                </ul>
+      <div #target>
+        <div *ngIf="show_req_join" style="background-color: lightblue;">
+          <ul id="rides">
+            <li class="ride">
+              <div *ngFor="let riderDetail of riderDetails">
+                <div *ngIf="selectedRideDetail.riderName == riderDetail.username" id="section2">
+                  <ul>
+                    <li><strong>ID: </strong>{{riderDetail.rider_id}}</li>
+                    <li><strong>Name: </strong> {{riderDetail.name}}</li>
+                    <li><strong>Car Model: </strong> {{riderDetail.carmodel}}</li>
+                    <li><strong>Car Number: </strong> {{riderDetail.carnumber}}</li>
+                    <li><strong>Car Color: </strong> {{riderDetail.carcolor}}</li>
+                    <li><button id="cancel" class="pill" routerLink="/payment"
+                        (click)=reqToJoin(riderDetail.name,riderDetail.rider_mobile,riderDetail.email,riderDetail.username,selectedRideDetail.ride_id,selectedRideDetail.seats)>Confirm
+                       Ride</button></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
-      <a>Press "Request to Join" to proceed with your Request and fill below details for confirmation and get fare
-        estimate</a>
+            </li>
+          </ul>
+          <a>
+            Press "Confirm Ride" to proceed with your Request and fill below details
+            to get the rider details and amount on your email.
+          </a>
+        </div>
       </div>
     </section>
   </div>

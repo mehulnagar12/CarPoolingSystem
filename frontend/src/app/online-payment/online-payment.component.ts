@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class OnlinePaymentComponent implements OnInit {
 
   handler:any =null
-  temp:any
+  temp:0
 
   constructor(private router: Router) { }
 
@@ -37,10 +37,12 @@ export class OnlinePaymentComponent implements OnInit {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log(token)
+        this.temp = 1
         alert('Payment Successfull!! Close this window');
       }
     });
 
+    
     handler.open({
       name: 'Rider',
       description: 'Ride Share Earn',
