@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <h2>Submit your review</h2>
+  <section id="wrap">
+    <div id="section1"  style="margin-left: 15cm;">
+      <div style="color: red;">
+        <p>{{message}}</p>
+      </div>
+      <main>
+        <form action="#" method="POST" style="float: right;">
+          <input type="text" name="username" id="username" [(ngModel)]="review.username" 
+          placeholder="username"required>
+          <br>
+          <input type="text" name="email" [(ngModel)]="review.emailId" id="email"
+          placeholder="Email id" required>
+          <br>
+          <input type="date" name="date" [(ngModel)]="review.date" id="date" 
+          placeholder="dd/mm/yy" required>
+          <br>
+          <textarea type="area" name="review" [(ngModel)]="review.message" id="message" 
+          placeholder="Review" minlength="8" rows="5"  required></textarea>
+          <br>
+          <input type="submit" value="Submit review" class="pill" (click)=submitReview()>
+        </form>
+      </main>
+    </div>
+  </section>
+</body>
+
+</html>
+<router-outlet></router-outlet>

@@ -29,6 +29,8 @@ import { SearchFilterPipe } from './display-rides/search-filter.pipe';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
+import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
+import { DisplayReviewsComponent } from './display-reviews/display-reviews.component';
 
 //import { UserHttpInterceptorService } from './user-http-interceptor.service';
 
@@ -57,6 +59,8 @@ import { OnlinePaymentComponent } from './online-payment/online-payment.componen
     UserProfileComponent,
     RiderProfileComponent,
     OnlinePaymentComponent,
+    CustomerReviewsComponent,
+    DisplayReviewsComponent,
   ],
   imports: [
     BrowserModule,

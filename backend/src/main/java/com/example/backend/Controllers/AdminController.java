@@ -3,8 +3,10 @@ package com.example.backend.Controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.backend.Model.Review;
 import com.example.backend.Model.Rider;
 import com.example.backend.Model.Users;
+import com.example.backend.Repo.ReviewRepo;
 import com.example.backend.Repo.RiderRepo;
 import com.example.backend.Repo.UserRepo;
 import com.example.backend.Services.Mail;
@@ -35,6 +37,9 @@ public class AdminController {
 
     @Autowired
     Mail mail;
+
+    @Autowired
+    private ReviewRepo reviewRepo;
 
     @CrossOrigin("http://localhost:4200/")
     @PostMapping("/admin/addUser")
@@ -104,5 +109,9 @@ public class AdminController {
         return riderRepo.findAll();
     }
 
+    @GetMapping("/admin/getReviews")
+    public List<Review> getAllReviews(){
+        return reviewRepo.findAll();
+    }
 
 }

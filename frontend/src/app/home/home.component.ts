@@ -19,9 +19,11 @@ export class HomeComponent implements OnInit {
   }
   
   public navigateToAvlRides(){
-
     this.mySearch.emit(this.dest + " " + this.ori);
     this.router.navigate(['displayRides']);
   }
-  
+
+  public navigateToReview(){
+    this.router.navigate(['reviews']);
+  }
 }

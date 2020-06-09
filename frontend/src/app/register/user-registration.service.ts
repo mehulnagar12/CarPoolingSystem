@@ -30,4 +30,7 @@ export class UserRegistrationService {
   public updateUser(id){
     return this.http.put("http://localhost:8080/admin/update/"+id,{responseType:'json'});
   }
+  public getReviews(){
+    return this.http.get("http://localhost:8080/admin/getReviews");
+  }
 }

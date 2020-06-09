@@ -19,6 +19,8 @@ import { DisplayRidesComponent } from './display-rides/display-rides.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RiderProfileComponent } from './rider-profile/rider-profile.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
+import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
+import { DisplayReviewsComponent } from './display-reviews/display-reviews.component';
 
 
 const routes: Routes = [
@@ -41,6 +43,8 @@ const routes: Routes = [
   {path: 'onlinePayment' , component: OnlinePaymentComponent , canActivate:[AuthGuardRiderService]},
   {path:"offerRide" , component:RegisterRideDetailComponent , canActivate:[AuthGuardRiderService]},
   {path:"payment" , component:PaymentComponent , canActivate:[AuthGuardService]},
+  {path:"reviews" , component:CustomerReviewsComponent},
+  {path:"displayReviews" , component:DisplayReviewsComponent , canActivate:[AuthGuardService]},
   {path: 'logout', component: LoginComponent}
 ];
 
