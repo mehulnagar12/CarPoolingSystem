@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -50,6 +49,9 @@ public class UserController {
 
     @Autowired
     Optional<RideDetails> rd;
+
+    @Autowired
+    Optional<Users> us;
 
     @Autowired
     private HistoryUserRepo historyUserRepo;
@@ -104,14 +106,18 @@ public class UserController {
     }
 
     @CrossOrigin("http://localhost:4200/")
-    @PutMapping("/users/update/{username}")
-    public String updateInfo(@PathVariable String username){
-        Users user = userRepo.findByUsername(username);
-        System.out.println(user.getName());
-        user.setName(user.getName());
-        user.setEmail(user.getEmail());
+    @PutMapping("/users/update/{id}")
+    public String updateInfo(@PathVariable int id,@RequestBody Users userDet){
+        us = userRepo.findById(id);
+        Users user = us.get();
+        System.out.println("Name:--->"+user.getUsername());
+        user.setUsername(userDet.getUsername());
+        String pwd = userDet.getPassword();
+        String encryptedPwd = passwordEncoder.encode(pwd);
+        user.setPassword(encryptedPwd);
         
         userRepo.save(user);
+        System.out.println(user.getUsername());
         return "Updated..!!";
     }
 

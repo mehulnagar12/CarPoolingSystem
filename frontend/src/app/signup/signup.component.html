@@ -36,7 +36,7 @@
         <h2>Sign Up - User</h2>
         <form action="#" method="POST">
           <input type="text" name="name" id="name" [(ngModel)]="user.name" placeholder="Fullname" required>
-          <input type="text" [(ngModel)]="user.username" name="username" id="username" placeholder="Username">
+          <input type="text" [(ngModel)]="user.username" name="username" id="username" placeholder="Username" required>
           <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="Email address" required>
           <input type="text" name="mobile" id="mobile" [(ngModel)]="user.mobile" placeholder="Mobile Number" required>
           <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="Password" minlength="8" required>

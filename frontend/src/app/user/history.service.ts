@@ -10,6 +10,7 @@ export class HistoryService {
 
   id:number;
   rider_id:number;
+  user_id: number;
 
   public sendHistory(history){
     return this.http.post("http://localhost:8080/users/history",history,{responseType:'text' as 'json'});
@@ -23,8 +24,8 @@ export class HistoryService {
     return this.http.post("http://localhost:8080/users/sendCancelEmail",cancelMail,{responseType:'text' as 'json'})
   }
 
-  public updateUser(user){
-    return this.http.put("http://localhost:8080/users/update",user,{responseType:'text' as 'json'})
+  public updateUser(user_id,userdetails){
+    return this.http.put("http://localhost:8080/users/update/"+user_id,userdetails,{responseType:'text' as 'json'})
   }
 
   public getUsers(username){
