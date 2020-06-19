@@ -28,9 +28,18 @@ export class HistoryService {
     return this.http.put("http://localhost:8080/users/update/"+user_id,userdetails,{responseType:'text' as 'json'})
   }
 
+  public updateRider(rider_id,riderdetails){
+    return this.http.put("http://localhost:8080/riders/update/"+rider_id,riderdetails,{responseType:'text' as 'json'})
+  }
+
   public getUsers(username){
     return this.http.get("http://localhost:8080/users/list/" + username)
   }
+
+  public getRiders(username){
+    return this.http.get("http://localhost:8080/riders/getRider/" + username)
+  }
+  
 
   public sendRiderHistory(rHistory){
     return this.http.post("http://localhost:8080/users/RiderHistory",rHistory,{responseType:'text' as 'json'});

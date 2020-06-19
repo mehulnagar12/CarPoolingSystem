@@ -10,11 +10,15 @@ import { Email } from '../email';
 })
 export class RiderProfileComponent implements OnInit {
 
+  riders: any;
   dispName: any;
   historyRiders: any;
   len: any
   emails: Email = new Email("", "")
   cancelMessage: any
+  updateMessage: any;
+  openform: boolean;
+
   constructor(private recieve: HistoryService,
     private service: AuthRiderService) { }
 
@@ -27,6 +31,9 @@ export class RiderProfileComponent implements OnInit {
       this.emails.emailId = this.historyRiders[0].userEmail;
       this.emails.info = this.historyRiders[0].riderName + " has cancelled ride";
     })
+
+    let resp2 = this.recieve.getRiders(this.service.getLoggedInUserName());
+      resp2.subscribe((data) => this.riders = data)
   }
 
   sendCancellationMail(hist,id:number) {
@@ -44,4 +51,19 @@ export class RiderProfileComponent implements OnInit {
     let resp = this.recieve.deleteHistoryRider(id);
     resp.subscribe((data) => this.historyRiders = data);
   }
+
+  editInfo(rider_id:number,username,password){
+    this.riders.username = username;
+    this.riders.password = password;
+    //var temp_id = this.usersListRider.user_id;
+    console.log("ID: " + rider_id)
+    let resp = this.recieve.updateRider(rider_id,this.riders);
+    resp.subscribe((data) => this.riders = data);
+    this.updateMessage = "Updated..!"
+  }
+
+  onClickOpenForm(){
+    this.openform=true;  
+    return this.openform;
+    }
 }
