@@ -36,9 +36,7 @@
       
       
       <section class="spread">
-        <div style="text-align: center" style="color:red;">
-          <h1>{{message}}</h1>
-        </div>
+        
         <h2>Create Ride Offer</h2>
         <form>
           <input type="text" [(ngModel)]="rideDetail.origin" name="departure" id="departure" placeholder="Departure" title="Tip: Use the nearest bus stop to you for optimal results." required>
@@ -49,6 +47,9 @@
           <input type="text" [(ngModel)]="rideDetail.riderName" name="Rider-Name" placeholder=" User Name" required>
           <input type="submit" class="pill" value="Offer Ride" (click)="addNow()">
         </form>
+        <div style="text-align: center" style="color:red;">
+          <h1>{{message}}</h1>
+        </div>
       </section>
     </div>
   </body>

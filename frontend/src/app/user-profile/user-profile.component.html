@@ -223,10 +223,11 @@
     <br>
     <br>
     <div *ngIf="openform">
+      <h2 style="color: #E34724;">ALWAYS enter the password Current/New</h2>
       <h3>Enter new username and password</h3>
       <form action="#" method="PUT">
         <input type="text" name="username" placeholder="Username" [(ngModel)]="users.username"> &nbsp;&nbsp;
-        <input type="password" name="password" placeholder="Password" [(ngModel)]="users.password">
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="users.password" required>
         &nbsp;&nbsp;
         <input type="submit" value="Update" class="pill" (click)=editInfo(users.user_id,users.username,users.password)>
       </form>

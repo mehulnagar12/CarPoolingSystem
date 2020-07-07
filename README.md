@@ -2,6 +2,18 @@
 RIDE  | SHARE | EARN
 
 1. Install Node Modules in the frontend folder -- "npm init".
+2. For backend Main file: "DemoApplication.java"
+3. For creating the Model class and the Getter & Setter method Lombok extension is used.
+4. For sending E-Mail I have used my outlook account. You have to enter your credentials in "application.properties" file.
+5. My Schema name is "project". MAKE CHANGES IN APPLICATION.PROPERTIES ACCORDING TO YOUR SETTINGS.
+6. Three types of entries: User, Rider, Admin. There is only single admin with, username: mehul and password: password 
+7. SignUp for user and rider is present.
+8. seperate admin portal with the credentials given in pt 6.
+9. For updating user/rider details everytime enter the password in password field. (Current or it may be updated password).
+
+## Note
+For security of the application Basic authentication token (JPA authentication) is used, so everytime you login use seperate tab.
+
 
 # Frontend- Angular CLI 9
 

@@ -19,6 +19,7 @@ export class PaymentComponent implements OnInit {
 
   emails: Email = new Email("","","");
   message:any;
+  message2: "Choose the payment option";
   payMessage:any;
   isLoggedIn = false;
   price: "50";

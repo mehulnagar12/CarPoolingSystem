@@ -206,7 +206,13 @@ public class UserController {
         System.out.println("Seats: "+details.getSeats());
         details.setSeats(details.getSeats()-1);
         System.out.println("Updated: "+details.getSeats());
-        rideDetailRepo.save(details);
+        if(details.getSeats()>=0){
+            rideDetailRepo.save(details);
+        }
+        else{
+            details.setSeats(0);
+            rideDetailRepo.save(details);
+        }
         return "Value Updated";
     }
 }
